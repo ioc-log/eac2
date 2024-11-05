@@ -30,11 +30,10 @@ class MySeleniumTests(StaticLiveServerTestCase):
  
         # introduïm dades de login i cliquem el botó "Log in" per entrar
         username_input = self.selenium.find_element(By.NAME,"username")
-        username_input.send_keys('adminlog')
+        username_input.send_keys('admin')
         password_input = self.selenium.find_element(By.NAME,"password")
-        password_input.send_keys('pirineus')
+        password_input.send_keys('admin123')
         self.selenium.find_element(By.XPATH,'//input[@value="Log in"]').click()
  
         # testejem que hem entrat a l'admin panel comprovant el títol de la pàgina
         self.assertEqual( self.selenium.title , "Site administration | Django site admin" )
-Les biblioteques de test especialitzades, com la que empra Django, creen un nou entorn 
