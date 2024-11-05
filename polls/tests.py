@@ -43,7 +43,7 @@ class MySeleniumTests(StaticLiveServerTestCase):
         # Crear una Question con 1 Choice
         self.selenium.get('%s%s' % (self.live_server_url, '/admin/polls/question/add/'))
         self.selenium.find_element(By.NAME, "question_text").send_keys("Pregunta con una opción")
-        self.selenium.find_element(By.NAME, "pub_date").send_keys("2023-11-01")
+        self.selenium.find_element(By.NAME, "pub_date_0").send_keys("2023-11-01")
         
         # Añadir el primer Choice inline
         choice_input = self.selenium.find_element(By.NAME, "choice_set-0-choice_text")
