@@ -1,5 +1,4 @@
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
-from django.contrib.auth.models import User
 from selenium.webdriver.firefox.webdriver import WebDriver
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By
@@ -14,11 +13,6 @@ class MySeleniumTests(StaticLiveServerTestCase):
         opts = Options()
         cls.selenium = WebDriver(options=opts)
         cls.selenium.implicitly_wait(5)
-        # creem superusuari
-		user = User.objects.create_user("isard", "isard@isardvdi.com", "pirineus")
-		user.is_superuser = True
-		user.is_staff = True
-		user.save()
  
     @classmethod
     def tearDownClass(cls):
@@ -36,10 +30,11 @@ class MySeleniumTests(StaticLiveServerTestCase):
  
         # introduïm dades de login i cliquem el botó "Log in" per entrar
         username_input = self.selenium.find_element(By.NAME,"username")
-        username_input.send_keys('isard')
+        username_input.send_keys('adminlog')
         password_input = self.selenium.find_element(By.NAME,"password")
         password_input.send_keys('pirineus')
         self.selenium.find_element(By.XPATH,'//input[@value="Log in"]').click()
  
         # testejem que hem entrat a l'admin panel comprovant el títol de la pàgina
         self.assertEqual( self.selenium.title , "Site administration | Django site admin" )
+Les biblioteques de test especialitzades, com la que empra Django, creen un nou entorn 
