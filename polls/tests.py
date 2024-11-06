@@ -46,6 +46,7 @@ class MySeleniumTests(StaticLiveServerTestCase):
         self.selenium.find_element(By.NAME, "question_text").send_keys("Pregunta con una opción")
         self.selenium.find_element(By.TAG_NAME, "details").click()  # Abre el desplegable
         self.selenium.find_element(By.NAME, "pub_date_0").send_keys("2023-11-01")
+        self.selenium.find_element(By.NAME, "pub_date_1").send_keys("14:30")  # Ejemplo con hora
         
         # Añadir el primer Choice inline
         choice_input = self.selenium.find_element(By.NAME, "choice_set-0-choice_text")
@@ -59,7 +60,7 @@ class MySeleniumTests(StaticLiveServerTestCase):
         self.selenium.find_element(By.NAME, "question_text").send_keys("Pregunta con 100 opciones")
         self.selenium.find_element(By.TAG_NAME, "details").click()  # Abre el desplegable
         self.selenium.find_element(By.NAME, "pub_date_0").send_keys("2023-11-01")
-        
+        self.selenium.find_element(By.NAME, "pub_date_1").send_keys("14:30")  # Ejemplo con hora
         # Añadir 100 Choices utilizando el bucle
         for i in range(100):
             WebDriverWait(self.selenium, 10).until(
