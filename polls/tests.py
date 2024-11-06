@@ -56,6 +56,7 @@ class MySeleniumTests(StaticLiveServerTestCase):
         # Crear otra Question con 100 Choices
         self.selenium.get('%s%s' % (self.live_server_url, '/admin/polls/question/add/'))
         self.selenium.find_element(By.NAME, "question_text").send_keys("Pregunta con 100 opciones")
+        self.selenium.find_element(By.TAG_NAME, "details").click()  # Abre el desplegable
         self.selenium.find_element(By.NAME, "pub_date").send_keys("2023-11-01")
         
         # Añadir 100 Choices utilizando el bucle
