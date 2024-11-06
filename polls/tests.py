@@ -77,8 +77,8 @@ class MySeleniumTests(StaticLiveServerTestCase):
         self.selenium.get('%s%s' % (self.live_server_url, '/admin/polls/choice/'))
         
         # Contar el número de filas en la lista de Choices
-        choices_count = len(self.selenium.find_elements(By.CLASS_NAME, 'row'))
-        self.assertEqual(choices_count, 101)
+        choices_count = self.selenium.find_element(By.CSS_SELECTOR, "p.paginator").text
+        self.assertIn("101 choices", choices_count)
     
     @staticmethod
     def random_text():
