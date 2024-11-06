@@ -28,7 +28,7 @@ class MySeleniumTests(StaticLiveServerTestCase):
 
     @classmethod
     def tearDownClass(cls):
-        cls.selenium.quit()
+        #cls.selenium.quit()
         super().tearDownClass()
 
     def test_create_questions_with_choices(self):
@@ -77,8 +77,6 @@ class MySeleniumTests(StaticLiveServerTestCase):
         # Verificar que los Choices están disponibles en el menú de Choices
         self.selenium.get('%s%s' % (self.live_server_url, '/admin/polls/choice/'))
     	
-    	input("Presiona Enter para cerrar el navegador...")
-
     @staticmethod
     def random_text():
         """Genera un texto aleatorio de 10 caracteres para los Choices."""
