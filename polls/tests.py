@@ -1,5 +1,6 @@
 import random
 import string
+import time
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.contrib.auth.models import User
 from selenium.webdriver.firefox.webdriver import WebDriver
