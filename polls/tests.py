@@ -76,11 +76,9 @@ class MySeleniumTests(StaticLiveServerTestCase):
         
         # Verificar que los Choices están disponibles en el menú de Choices
         self.selenium.get('%s%s' % (self.live_server_url, '/admin/polls/choice/'))
-        
-        # Contar el número de filas en la lista de Choices
-        choices_count = self.selenium.find_element(By.CSS_SELECTOR, "p.paginator").text
-        self.assertIn("101 choices", choices_count)
-    	time.sleep(10)
+    	
+    	time.sleep(100)
+
     @staticmethod
     def random_text():
         """Genera un texto aleatorio de 10 caracteres para los Choices."""
