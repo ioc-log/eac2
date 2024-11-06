@@ -77,7 +77,7 @@ class MySeleniumTests(StaticLiveServerTestCase):
         # Verificar que los Choices están disponibles en el menú de Choices
         self.selenium.get('%s%s' % (self.live_server_url, '/admin/polls/choice/'))
     	
-    	time.sleep(100)
+    	input("Presiona Enter para cerrar el navegador...")
 
     @staticmethod
     def random_text():
